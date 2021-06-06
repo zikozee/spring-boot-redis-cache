@@ -4,6 +4,7 @@ import com.zikozee.rediscache.entity.Customer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,12 @@ public class CustomerServiceImpl implements CustomerService{
     public String deleteCustomerById(int id) {
         log.info("deleted customer with id: {} ", id);
        return "deleted customer with id: {} " + id;//PERFORM DATABASE ACTION HERE
+    }
+
+    @Override
+    public Customer updateCustomer(int id, Customer customer) {
+        log.info("Updating customer : {} information for {} ", customer, id);
+        return customer;
     }
 
 
